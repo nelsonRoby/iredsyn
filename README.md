@@ -1,6 +1,8 @@
-# redino
+# iredsync
 
-一个redis与inotify组合下的工具，设想将需要同步的文件写进redis里，然后将它同步到所有需要的地方，那怕是100G也无所谓,因为我们关注是当前需要更新的文件。
+	一个redis与inotify组合下的工具，将需要同步的文件写进redis里，然后将它同步到所有需要的地方，那怕是100G也无所谓,因为我们关注是当前需要更新的文件。
+	
+	原理是参考硬件阵列当中的RAID5思想。
 
 	#全局变量
 	[global]
@@ -10,18 +12,25 @@
 	rdport = 6379
 	#redis 密码
 	rdpass = 123
-
+	sypath = /data
+	srctag = test
+	inloop = 0
+	debug = 0
+	
 	#rsync目标1
-	[sydst1]
+	[sydst-1]
 	#rsync主机
-	host = 1.1.1.1
+	dthost = 1.1.1.1
 	#rsync用户名
-	user = file
+	syuser = file
 	#rsync密码文件
-	pwdf = aaa.pwd
+	sypwdf = aaa.pwd
 	#rsync目标名
-	tnae = bakfile
-	mode = 1 (1为正常模式，2为本地挂载)
+	syname = bakfile
+	#1为正常模式，2为本地挂载
+	symode = 1
 	#rsync目录（限本地挂载方式生效）
-	tdir = /tmp/aaa/
+	sydisk = /tmp/aaa/
+	rdport = 6379
+	rdpass = 123
 
