@@ -18,9 +18,9 @@ if __name__=='__main__':
     print('Start Runing...')
     
     while True:
-	initRedis()
+        initRedis()
         #diffRedis()
-        sleep(3600)
+        time.sleep(3600)
 
 
 
